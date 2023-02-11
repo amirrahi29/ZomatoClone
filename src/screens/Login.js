@@ -74,7 +74,6 @@ const Login = () => {
         <Text style={{ marginTop: 50 }}>{current}</Text>
 
 
-              
         <TextInput
           placeholder='Enter comments'
           placeholderTextColor={'black'}
@@ -101,7 +100,7 @@ export default Login;
 
 const styles = StyleSheet.create({
   imageStyle: {
-    height: 50,
+    height: 300,
     width: '100%',
     borderBottomLeftRadius: Platform.OS != 'IOS' ? 16 : 0,
     borderBottomRightRadius: Platform.OS != 'IOS' ? 16 : 0,

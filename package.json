@@ -21,6 +21,7 @@
     "react-native-check-box": "^2.1.7",
     "react-native-checkbox": "^2.0.0",
     "react-native-dropdown-select-list": "^2.0.4",
+    "react-native-element-dropdown": "^2.6.0",
     "react-native-gesture-handler": "^2.9.0",
     "react-native-reanimated": "^2.14.4",
     "react-native-responsive-dimensions": "^3.1.1",
