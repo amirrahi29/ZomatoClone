@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Dimensions, Text, TouchableOpacity, View, Image } from "react-native";
+import { Dimensions, Text, TouchableOpacity, View, Image, FlatList } from "react-native";
 import Modal from "react-native-modal";
 import Carousel from 'react-native-reanimated-carousel';
 import AllIcons from "../GlobalEquipments/AllIcons";
@@ -7,10 +7,40 @@ import AllIcons from "../GlobalEquipments/AllIcons";
 const Home = () => {
 
   const [isModalVisible, setModalVisible] = useState(false);
+  const [isBottomModalVisible, setBottomModalVisible] = useState(false);
+
+  const [isSelected, setIsSelected] = useState(1);
+
+  const [languages, setLanguages] = useState([
+    {
+      id:1,
+      language: 'English',
+    },
+    {
+      id:2,
+      language: 'हिंदी',
+    },
+    {
+      id:3,
+      language: 'मराठी',
+    },
+    {
+      id:4,
+      language: 'उर्दू',
+    },
+    {
+      id:5,
+      language: 'तेलुगु',
+    }
+  ]);
 
   const toggleModal = () => {
     setModalVisible(!isModalVisible);
   };
+
+  const toggleBottomModal = () => {
+    setBottomModalVisible(!isBottomModalVisible);
+  }
 
 
   const data = [
@@ -45,6 +75,10 @@ const Home = () => {
         <Text style={{ color: 'white', padding: 12, alignSelf: 'center' }}>Open model</Text>
       </TouchableOpacity>
 
+      <TouchableOpacity onPress={toggleBottomModal} style={{ backgroundColor: 'green', margin: 32, borderRadius: 16 }}>
+        <Text style={{ color: 'white', padding: 12, alignSelf: 'center' }}>Open bottom sheet</Text>
+      </TouchableOpacity>
+
       <Modal
         isVisible={isModalVisible}
         hasBackdrop={true}
@@ -69,6 +103,54 @@ const Home = () => {
       </Modal>
 
 
+      <Modal
+        isVisible={isBottomModalVisible}
+        hasBackdrop={true}
+        animationIn='slideInUp'
+        style={{
+          margin: 0
+        }}
+      >
+        <TouchableOpacity onPress={toggleBottomModal} style={{
+          flex: 1,
+          justifyContent: 'flex-end',
+          alignItems: 'center',
+        }}>
+
+          <View style={{
+            height: 400,
+            borderTopLeftRadius: 24,
+            borderTopRightRadius: 24,
+            backgroundColor: 'white',
+            width: '100%',
+            padding: 16
+          }}>
+            <Text style={{
+              color: 'black', fontSize: 24, fontWeight: 'bold',
+              marginBottom: 32,
+              borderBottomColor: 'grey'
+            }}>Select Language</Text>
+            <FlatList
+              data={languages}
+              renderItem={({ item, index }) => {
+                return (
+                  <TouchableOpacity
+                    onPress={()=>setIsSelected(item.id)}
+                    style={{ backgroundColor: 'pink', marginBottom: 4, padding: 8, borderRadius: 8, flexDirection:'row' }}>
+
+                    <Image source={
+                     isSelected === item.id?AllIcons.check: AllIcons.uncheck} style={{height:20,width:20,alignSelf:'center'}}/>
+
+                    <Text style={{ color: 'black', fontSize: 20, marginBottom: 8,marginLeft:8 }}>{item.language}</Text>
+                  </TouchableOpacity>
+                )
+              }}
+            />
+          </View>
+        </TouchableOpacity>
+      </Modal>
+
+
       <Carousel
         loop
         width={width}
@@ -77,7 +159,7 @@ const Home = () => {
         data={data}
         scrollAnimationDuration={1000}
         onSnapToItem={(index) => console.log('current index:', index)}
-        renderItem={({ item,index }) => (
+        renderItem={({ item, index }) => (
           <View
             style={{
               flex: 1,
@@ -86,11 +168,13 @@ const Home = () => {
             }}
           >
             <Image source={item.image} style={{
-              resizeMode:'cover'
+              resizeMode: 'cover'
             }} />
 
-            <Text style={{ textAlign: 'center', fontSize: 30,color:'black',
-          position:'absolute',bottom:0 }}>
+            <Text style={{
+              textAlign: 'center', fontSize: 30, color: 'black',
+              position: 'absolute', bottom: 0
+            }}>
               {item.title}
             </Text>
 
@@ -99,7 +183,7 @@ const Home = () => {
       />
 
 
-      
+
 
 
 
