@@ -40,7 +40,7 @@ const Login = () => {
             color={gender ? '#4630EB' : undefined}
           />
 
-          <Text style={{ color: 'black', marginLeft: 16 }}>Male {gender}</Text>
+          <Text style={{ color: 'black', marginLeft: 16 }}>Gender    ||   {gender?'Male':'Female'}</Text>
         </TouchableOpacity>
 
 
