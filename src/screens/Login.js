@@ -1,11 +1,13 @@
-import { View, Image, StyleSheet, Text, TouchableOpacity, ScrollView } from 'react-native'
-import React, { useState } from 'react';
+import { View, Image, StyleSheet, Text, TouchableOpacity, ScrollView, ActivityIndicator } from 'react-native'
+import React, { useState, useRef } from 'react';
 import CommonCss from '../GlobalEquipments/css/CommonCss';
 import AllIcons from '../GlobalEquipments/AllIcons';
 import CommonInputField from '../GlobalEquipments/CommonInputField';
 import Checkbox from 'expo-checkbox';
 import RadioButtonGroup, { RadioButtonItem } from "expo-radio-button";
 import { TextInput } from 'react-native-gesture-handler';
+import AllColors from '../GlobalEquipments/AllColors';
+import OTPInputView from '@twotalltotems/react-native-otp-input';
 
 
 const Login = () => {
@@ -16,20 +18,52 @@ const Login = () => {
   //radio
   const [current, setCurrent] = useState("Male");
 
+  //otp filed
+  const [otp,setOtp] = useState('');
+
+
   return (
     <View style={CommonCss.container}>
       <Image source={AllIcons.food1} style={styles.imageStyle} />
+
+      <ActivityIndicator
+        size='large'
+        color={'red'}
+        style={{
+          height: 100,
+          width: 100,
+          alignSelf: 'center'
+        }} />
+
+      <CommonInputField placeholder={'Enter mobile number'} onchangeMobileText={{}} />
+
+
+
+      <OTPInputView
+        color="red"
+        style={{ width: '80%', height: 50, alignSelf:'center' }}
+        pinCount={4}
+        code={otp}
+        onCodeChanged = {code => setOtp(code)}
+        autoFocusOnLoad = {false}
+        codeInputFieldStyle={styles.underlineStyleBase}
+        codeInputHighlightStyle={styles.underlineStyleHighLighted}
+        onCodeFilled={(code) => {
+          console.log(`Code is ${code}, you are good to go!`)
+        }}
+      />
+
+
+
 
       <ScrollView style={{
         margin: 8
       }}>
 
-        <CommonInputField placeholder={'Enter mobile number'} onchangeMobileText={{}} />
+
+        
 
         <View style={{ marginTop: 16 }}></View>
-
-
-
 
 
         <TouchableOpacity onPress={() => setGender(!gender)} style={{ flexDirection: 'row' }}>
@@ -40,7 +74,7 @@ const Login = () => {
             color={gender ? '#4630EB' : undefined}
           />
 
-          <Text style={{ color: 'black', marginLeft: 16 }}>Gender    ||   {gender?'Male':'Female'}</Text>
+          <Text style={{ color: 'black', marginLeft: 16 }}>Gender    ||   {gender ? 'Male' : 'Female'}</Text>
         </TouchableOpacity>
 
 
@@ -80,14 +114,22 @@ const Login = () => {
           multiline={true}
           numberOfLines={5}
           style={{
-            borderWidth:1,
-            borderColor:'green',
-            borderRadius:16,
-            verticalAlign:'top',
-            color:'black',
-            padding:8
+            borderWidth: 1,
+            borderColor: 'green',
+            borderRadius: 16,
+            verticalAlign: 'top',
+            color: 'black',
+            padding: 8
           }}
         />
+
+        <TouchableOpacity style={{
+          backgroundColor: AllColors.themeColor, flex: 1,
+          borderRadius: 8, marginTop: 16,
+          justifyContent: 'center', alignItems: 'center'
+        }}>
+          <Text style={{ color: AllColors.white, fontSize: 24, padding: 8 }}>Submit</Text>
+        </TouchableOpacity>
 
 
       </ScrollView>
@@ -104,5 +146,28 @@ const styles = StyleSheet.create({
     width: '100%',
     borderBottomLeftRadius: Platform.OS != 'IOS' ? 16 : 0,
     borderBottomRightRadius: Platform.OS != 'IOS' ? 16 : 0,
-  }
+  },
+  borderStyleBase: {
+    width: 30,
+    height: 45,
+  },
+
+  borderStyleHighLighted: {
+    borderColor: "#ff0000"
+  },
+
+  underlineStyleBase: {
+    width: 40,
+    height: 45,
+    borderWidth: 1,
+    borderBottomWidth: 1,
+    color:'white',
+    borderRadius:8,
+    backgroundColor:'red'
+  },
+
+  underlineStyleHighLighted: {
+    borderColor: "green",
+    borderWidth:1
+  },
 });

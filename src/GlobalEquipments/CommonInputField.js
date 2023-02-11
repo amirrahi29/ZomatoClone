@@ -4,7 +4,7 @@ import { TextInput } from 'react-native-gesture-handler'
 import { Orientation } from './AllDimensions'
 import AllIcons from './AllIcons'
 
-const CommonInputField = ({placeholder,onchangeMobileText}) => {
+const CommonInputField = ({ placeholder, onchangeMobileText }) => {
     return (
         <View style={{
             height: 60,
