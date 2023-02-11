@@ -108,7 +108,7 @@ const Login = () => {
         />
 
         <TouchableOpacity
-          onPress={() => navigate.navigate('OTP')}
+          onPress={() => navigate.replace('OTP')}
           style={{
             backgroundColor: AllColors.themeColor, flex: 1,
             borderRadius: 8, marginTop: 16,

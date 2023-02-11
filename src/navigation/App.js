@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Splash from '../screens/Splash';
 import Login from '../screens/Login';
 import OTP from '../screens/OTP';
+import Home from '../screens/Home';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,6 +15,7 @@ const App = () => {
         <Stack.Screen name="Splash" component={Splash} options={{headerShown:false}} />
         <Stack.Screen name="Login" component={Login} options={{headerShown:false}} />
         <Stack.Screen name="OTP" component={OTP} options={{headerShown:false}} />
+        <Stack.Screen name="Home" component={Home} options={{title:'Zomato'}} />
       </Stack.Navigator>
     </NavigationContainer>
   )

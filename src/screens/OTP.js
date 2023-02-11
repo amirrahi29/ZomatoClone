@@ -1,20 +1,26 @@
-import { View, StyleSheet, Image } from 'react-native'
+import { StyleSheet, Image, TouchableOpacity, Text } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 import React, { useState } from 'react'
 import OTPInputView from '@twotalltotems/react-native-otp-input'
 import CommonCss from '../GlobalEquipments/css/CommonCss'
 import AllIcons from '../GlobalEquipments/AllIcons';
+import { ScrollView } from 'moti';
+import Toast from 'react-native-simple-toast';
 
 const OTP = () => {
 
     //otp filed
     const [otp, setOtp] = useState('');
 
+    //navigation 
+    const navigation = useNavigation();
+
     return (
-        <View style={[CommonCss.container]}>
+        <ScrollView style={[CommonCss.container]}>
             <Image source={AllIcons.food1} style={styles.imageStyle} />
             <OTPInputView
                 color="red"
-                style={{ width: '80%', height: 50, alignSelf: 'center',marginTop:50 }}
+                style={{ width: '80%', height: 50, alignSelf: 'center', marginTop: 50 }}
                 pinCount={4}
                 code={otp}
                 onCodeChanged={code => setOtp(code)}
@@ -25,7 +31,35 @@ const OTP = () => {
                     console.log(`Code is ${code}, you are good to go!`)
                 }}
             />
-        </View>
+
+            <TouchableOpacity
+                onPress={() => {
+                    Toast.show('This is a styled toast', Toast.LONG, { backgroundColor: 'pink' });
+                }}
+                style={{
+                    marginLeft: 8,
+                    marginRight: 8,
+                    backgroundColor: AllColors.themeColor, flex: 1,
+                    borderRadius: 8, marginTop: 16,
+                    justifyContent: 'center', alignItems: 'center'
+                }}>
+                <Text style={{ color: AllColors.white, fontSize: 24, padding: 8 }}>Show Toast</Text>
+            </TouchableOpacity>
+
+
+            <TouchableOpacity
+                onPress={() => navigation.replace('Home')}
+                style={{
+                    marginLeft: 8,
+                    marginRight: 8,
+                    backgroundColor: AllColors.themeColor, flex: 1,
+                    borderRadius: 8, marginTop: 16,
+                    justifyContent: 'center', alignItems: 'center'
+                }}>
+                <Text style={{ color: AllColors.white, fontSize: 24, padding: 8 }}>Go to Home</Text>
+            </TouchableOpacity>
+
+        </ScrollView>
     )
 }
 
