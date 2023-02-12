@@ -6,6 +6,7 @@ import Login from '../screens/Login';
 import OTP from '../screens/OTP';
 import Home from '../screens/Home';
 import InstaReels from '../screens/InstaReels';
+import VideosAutoPlay from '../screens/VideosAutoPlay';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +19,7 @@ const App = () => {
         <Stack.Screen name="OTP" component={OTP} options={{headerShown:false}} />
         <Stack.Screen name="Home" component={Home} options={{title:'Zomato'}} />
         <Stack.Screen name="InstaReels" component={InstaReels} options={{headerShown:false}} />
+        <Stack.Screen name="VideosAutoPlay" component={VideosAutoPlay} options={{headerShown:false}} />
       </Stack.Navigator>
     </NavigationContainer>
   )
