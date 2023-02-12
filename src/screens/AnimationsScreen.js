@@ -52,10 +52,6 @@ const AnimationsScreen = () => {
                 }}>
             </MotiView>
 
-
-            
-
-
         </View>
     )
 }

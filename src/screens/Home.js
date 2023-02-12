@@ -98,6 +98,10 @@ const Home = () => {
         <Text style={{ color: 'white', padding: 12, alignSelf: 'center' }}>Animations screen</Text>
       </TouchableOpacity>
 
+      <TouchableOpacity onPress={() => navigation.navigate('CustomHookScreen')} style={{ backgroundColor: 'green', marginLeft: 32, marginRight:32,marginBottom:8, borderRadius: 16 }}>
+        <Text style={{ color: 'white', padding: 12, alignSelf: 'center' }}>CustomHookScreen screen</Text>
+      </TouchableOpacity>
+
       <Modal
         isVisible={isModalVisible}
         hasBackdrop={true}
@@ -177,7 +181,7 @@ const Home = () => {
         autoPlay={true}
         data={data}
         scrollAnimationDuration={1000}
-        onSnapToItem={(index) => console.log('current index:', index)}
+        onSnapToItem={(index) => {}}
         renderItem={({ item, index }) => (
           <View
             style={{
