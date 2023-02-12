@@ -90,6 +90,10 @@ const Home = () => {
         <Text style={{ color: 'white', padding: 12, alignSelf: 'center' }}>Videos Auto Play</Text>
       </TouchableOpacity>
 
+      <TouchableOpacity onPress={() => navigation.navigate('Banner')} style={{ backgroundColor: 'green', marginLeft: 32, marginRight:32,marginBottom:8, borderRadius: 16 }}>
+        <Text style={{ color: 'white', padding: 12, alignSelf: 'center' }}>Banner Carousal</Text>
+      </TouchableOpacity>
+
       <Modal
         isVisible={isModalVisible}
         hasBackdrop={true}
