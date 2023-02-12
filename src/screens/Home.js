@@ -106,6 +106,10 @@ const Home = () => {
         <Text style={{ color: 'white', padding: 12, alignSelf: 'center' }}>CheckInternet screen</Text>
       </TouchableOpacity>
 
+      <TouchableOpacity onPress={() => navigation.navigate('AddProductForm')} style={{ backgroundColor: 'green', marginLeft: 32, marginRight: 32, marginBottom: 8, borderRadius: 16 }}>
+        <Text style={{ color: 'white', padding: 12, alignSelf: 'center' }}>Add Product Form</Text>
+      </TouchableOpacity>
+
       <Modal
         isVisible={isModalVisible}
         hasBackdrop={true}
