@@ -2,8 +2,6 @@ import { View, Text, StyleSheet, Dimensions, StatusBar, FlatList } from 'react-n
 import React, { useRef, useState, useEffect } from 'react'
 import Video from 'react-native-video';
 import VideosList from '../GlobalEquipments/VideosList';
-import AllIcons from '../GlobalEquipments/AllIcons';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import SwiperFlatList from 'react-native-swiper-flatlist';
 
 const { height, width } = Dimensions.get('window');
