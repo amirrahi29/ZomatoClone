@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigation } from '@react-navigation/native'
 import { Dimensions, Text, TouchableOpacity, View, Image, FlatList } from "react-native";
 import Modal from "react-native-modal";
 import Carousel from 'react-native-reanimated-carousel';
@@ -8,28 +9,30 @@ const Home = () => {
 
   const [isModalVisible, setModalVisible] = useState(false);
   const [isBottomModalVisible, setBottomModalVisible] = useState(false);
+  //navigatio
+  const navigation = useNavigation();
 
   const [isSelected, setIsSelected] = useState(1);
 
   const [languages, setLanguages] = useState([
     {
-      id:1,
+      id: 1,
       language: 'English',
     },
     {
-      id:2,
+      id: 2,
       language: 'हिंदी',
     },
     {
-      id:3,
+      id: 3,
       language: 'मराठी',
     },
     {
-      id:4,
+      id: 4,
       language: 'उर्दू',
     },
     {
-      id:5,
+      id: 5,
       language: 'तेलुगु',
     }
   ]);
@@ -71,12 +74,16 @@ const Home = () => {
   return (
     <View style={{ flex: 1 }}>
 
-      <TouchableOpacity onPress={toggleModal} style={{ backgroundColor: 'green', margin: 32, borderRadius: 16 }}>
+      <TouchableOpacity onPress={toggleModal} style={{ backgroundColor: 'green', marginLeft: 32, marginRight:32,marginBottom:8, marginTop:16, borderRadius: 16 }}>
         <Text style={{ color: 'white', padding: 12, alignSelf: 'center' }}>Open model</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={toggleBottomModal} style={{ backgroundColor: 'green', margin: 32, borderRadius: 16 }}>
+      <TouchableOpacity onPress={toggleBottomModal} style={{ backgroundColor: 'green', marginLeft: 32, marginRight:32,marginBottom:8, borderRadius: 16 }}>
         <Text style={{ color: 'white', padding: 12, alignSelf: 'center' }}>Open bottom sheet</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => navigation.navigate('InstaReels')} style={{ backgroundColor: 'green', marginLeft: 32, marginRight:32,marginBottom:8, borderRadius: 16 }}>
+        <Text style={{ color: 'white', padding: 12, alignSelf: 'center' }}>Insta Reels</Text>
       </TouchableOpacity>
 
       <Modal
@@ -135,13 +142,13 @@ const Home = () => {
               renderItem={({ item, index }) => {
                 return (
                   <TouchableOpacity
-                    onPress={()=>setIsSelected(item.id)}
-                    style={{ backgroundColor: 'pink', marginBottom: 4, padding: 8, borderRadius: 8, flexDirection:'row' }}>
+                    onPress={() => setIsSelected(item.id)}
+                    style={{ backgroundColor: 'pink', marginBottom: 4, padding: 8, borderRadius: 8, flexDirection: 'row' }}>
 
                     <Image source={
-                     isSelected === item.id?AllIcons.check: AllIcons.uncheck} style={{height:20,width:20,alignSelf:'center'}}/>
+                      isSelected === item.id ? AllIcons.check : AllIcons.uncheck} style={{ height: 20, width: 20, alignSelf: 'center' }} />
 
-                    <Text style={{ color: 'black', fontSize: 20, marginBottom: 8,marginLeft:8 }}>{item.language}</Text>
+                    <Text style={{ color: 'black', fontSize: 20, marginBottom: 8, marginLeft: 8 }}>{item.language}</Text>
                   </TouchableOpacity>
                 )
               }}
@@ -181,11 +188,6 @@ const Home = () => {
           </View>
         )}
       />
-
-
-
-
-
 
     </View>
   )
