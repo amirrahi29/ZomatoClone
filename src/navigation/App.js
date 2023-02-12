@@ -10,6 +10,7 @@ import VideosAutoPlay from '../screens/VideosAutoPlay';
 import Banner from '../screens/Banner';
 import AnimationsScreen from '../screens/AnimationsScreen';
 import CustomHooksScreen from '../screens/CustomHooksScreen';
+import CheckInternet from '../GlobalEquipments/CheckInternet';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,7 @@ const App = () => {
         <Stack.Screen name="Banner" component={Banner} options={{headerShown:false}} />
         <Stack.Screen name="AnimationsScreen" component={AnimationsScreen} options={{headerShown:false}} />
         <Stack.Screen name="CustomHookScreen" component={CustomHooksScreen} options={{headerShown:false}} />
+        <Stack.Screen name="CheckInternet" component={CheckInternet} options={{headerShown:false}} />
       </Stack.Navigator>
     </NavigationContainer>
   )

@@ -1,6 +1,5 @@
 import { View, TouchableOpacity, Text, FlatList, ActivityIndicator } from 'react-native';
 import useCount from '../GlobalEquipments/useCount';
-import React, { useState } from 'react';
 import UseProductApi from '../GlobalEquipments/UseProductApi';
 
 const CustomHooksScreen = () => {

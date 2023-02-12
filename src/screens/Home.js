@@ -74,32 +74,36 @@ const Home = () => {
   return (
     <View style={{ flex: 1 }}>
 
-      <TouchableOpacity onPress={toggleModal} style={{ backgroundColor: 'green', marginLeft: 32, marginRight:32,marginBottom:8, marginTop:16, borderRadius: 16 }}>
+      <TouchableOpacity onPress={toggleModal} style={{ backgroundColor: 'green', marginLeft: 32, marginRight: 32, marginBottom: 8, marginTop: 16, borderRadius: 16 }}>
         <Text style={{ color: 'white', padding: 12, alignSelf: 'center' }}>Open model</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={toggleBottomModal} style={{ backgroundColor: 'green', marginLeft: 32, marginRight:32,marginBottom:8, borderRadius: 16 }}>
+      <TouchableOpacity onPress={toggleBottomModal} style={{ backgroundColor: 'green', marginLeft: 32, marginRight: 32, marginBottom: 8, borderRadius: 16 }}>
         <Text style={{ color: 'white', padding: 12, alignSelf: 'center' }}>Open bottom sheet</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => navigation.navigate('InstaReels')} style={{ backgroundColor: 'green', marginLeft: 32, marginRight:32,marginBottom:8, borderRadius: 16 }}>
+      <TouchableOpacity onPress={() => navigation.navigate('InstaReels')} style={{ backgroundColor: 'green', marginLeft: 32, marginRight: 32, marginBottom: 8, borderRadius: 16 }}>
         <Text style={{ color: 'white', padding: 12, alignSelf: 'center' }}>Insta Reels</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => navigation.navigate('VideosAutoPlay')} style={{ backgroundColor: 'green', marginLeft: 32, marginRight:32,marginBottom:8, borderRadius: 16 }}>
+      <TouchableOpacity onPress={() => navigation.navigate('VideosAutoPlay')} style={{ backgroundColor: 'green', marginLeft: 32, marginRight: 32, marginBottom: 8, borderRadius: 16 }}>
         <Text style={{ color: 'white', padding: 12, alignSelf: 'center' }}>Videos Auto Play</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => navigation.navigate('Banner')} style={{ backgroundColor: 'green', marginLeft: 32, marginRight:32,marginBottom:8, borderRadius: 16 }}>
+      <TouchableOpacity onPress={() => navigation.navigate('Banner')} style={{ backgroundColor: 'green', marginLeft: 32, marginRight: 32, marginBottom: 8, borderRadius: 16 }}>
         <Text style={{ color: 'white', padding: 12, alignSelf: 'center' }}>Banner Carousal</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => navigation.navigate('AnimationsScreen')} style={{ backgroundColor: 'green', marginLeft: 32, marginRight:32,marginBottom:8, borderRadius: 16 }}>
+      <TouchableOpacity onPress={() => navigation.navigate('AnimationsScreen')} style={{ backgroundColor: 'green', marginLeft: 32, marginRight: 32, marginBottom: 8, borderRadius: 16 }}>
         <Text style={{ color: 'white', padding: 12, alignSelf: 'center' }}>Animations screen</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => navigation.navigate('CustomHookScreen')} style={{ backgroundColor: 'green', marginLeft: 32, marginRight:32,marginBottom:8, borderRadius: 16 }}>
+      <TouchableOpacity onPress={() => navigation.navigate('CustomHookScreen')} style={{ backgroundColor: 'green', marginLeft: 32, marginRight: 32, marginBottom: 8, borderRadius: 16 }}>
         <Text style={{ color: 'white', padding: 12, alignSelf: 'center' }}>CustomHookScreen screen</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => navigation.navigate('CheckInternet')} style={{ backgroundColor: 'green', marginLeft: 32, marginRight: 32, marginBottom: 8, borderRadius: 16 }}>
+        <Text style={{ color: 'white', padding: 12, alignSelf: 'center' }}>CheckInternet screen</Text>
       </TouchableOpacity>
 
       <Modal
@@ -108,7 +112,8 @@ const Home = () => {
       >
         <TouchableOpacity onPress={toggleModal} style={{
           flex: 1,
-          justifyContent: 'center', alignItems: 'center'
+          justifyContent: 'center',
+          alignItems: 'center'
         }}>
 
           <View style={{
@@ -116,9 +121,13 @@ const Home = () => {
             height: 200,
             borderRadius: 16,
             alignSelf: 'center',
-            backgroundColor: 'white', width: '100%', padding: 16
+            backgroundColor: 'white',
+            width: '100%',
+            padding: 16
           }}>
+
             <Text style={{ color: 'black' }}>Heloooooooo</Text>
+            
           </View>
 
 
@@ -181,7 +190,7 @@ const Home = () => {
         autoPlay={true}
         data={data}
         scrollAnimationDuration={1000}
-        onSnapToItem={(index) => {}}
+        onSnapToItem={(index) => { }}
         renderItem={({ item, index }) => (
           <View
             style={{
