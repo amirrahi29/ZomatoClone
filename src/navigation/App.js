@@ -8,6 +8,7 @@ import Home from '../screens/Home';
 import InstaReels from '../screens/InstaReels';
 import VideosAutoPlay from '../screens/VideosAutoPlay';
 import Banner from '../screens/Banner';
+import AnimationsScreen from '../screens/AnimationsScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +23,7 @@ const App = () => {
         <Stack.Screen name="InstaReels" component={InstaReels} options={{headerShown:false}} />
         <Stack.Screen name="VideosAutoPlay" component={VideosAutoPlay} options={{headerShown:false}} />
         <Stack.Screen name="Banner" component={Banner} options={{headerShown:false}} />
+        <Stack.Screen name="AnimationsScreen" component={AnimationsScreen} options={{headerShown:false}} />
       </Stack.Navigator>
     </NavigationContainer>
   )
